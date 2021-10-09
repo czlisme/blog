@@ -1,0 +1,527 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
+  <id>https://czlisme.github.io/blog/</id>
+  <title>头发会变少吗</title>
+  <subtitle>个人博客</subtitle>
+  <author>
+    <name>ChenZunlin</name>
+  </author>
+  <updated>2021-10-09T01:30:27.910Z</updated>
+  <generator>@mr-hope/vuepress-plugin-feed</generator>
+  <link rel="self" href="https://czlisme.github.io/blog/atom.xml"/>
+  <link rel="alternate" href="https://czlisme.github.io/blog/"/>
+  <rights>Copyright © 2021-present ChenZunlin</rights>
+  <category term="javascript"/>
+  <category term="vue"/>
+  <category term="后端"/>
+  <category term="ui框架"/>
+  <category term="like"/>
+  <contributor>
+    <name>ChenZunlin</name>
+  </contributor>
+  <entry>
+    <title type="html">这是主页啦</title>
+    <id>https://czlisme.github.io/blog/</id>
+    <link href="https://czlisme.github.io/blog/"/>
+    <updated>2021-10-09T01:30:47.134Z</updated>
+    <content type="html"><![CDATA[<ClientOnly>
+<home-down/>
+</ClientOnly>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">js数组常用方法</title>
+    <id>https://czlisme.github.io/blog/articles/aboutjs/arr/</id>
+    <link href="https://czlisme.github.io/blog/articles/aboutjs/arr/"/>
+    <updated>2021-10-09T01:30:47.136Z</updated>
+    <content type="html"><![CDATA[<div><pre><code>    <span>let</span> arr1 <span>=</span> <span>new</span> <span>Array</span><span>(</span><span>'6'</span><span>)</span>
+    console<span>.</span><span>log</span><span>(</span>arr1<span>)</span><span>;</span> <span>//['6']</span>
+    <span>//数组</span>
+    <span>let</span> array <span>=</span> Array<span>.</span><span>of</span><span>(</span><span>6</span><span>)</span><span>;</span> <span>//[6]</span>
+    console<span>.</span><span>table</span><span>(</span>array<span>)</span><span>;</span>
+    <span>let</span> arr <span>=</span> <span>new</span> <span>Array</span><span>(</span><span>6</span><span>)</span> <span>//这样创建的数组length=6 value=empty</span>
+    console<span>.</span><span>log</span><span>(</span>arr<span>)</span> <span>// [empty * 6]</span>
+    console<span>.</span><span>log</span><span>(</span>arr<span>.</span>length<span>)</span><span>;</span> <span>// 6</span>
+    <span>//类型检测与转换</span>
+    console<span>.</span><span>log</span><span>(</span>Array<span>.</span><span>isArray</span><span>(</span><span>[</span><span>]</span><span>)</span><span>)</span><span>;</span> <span>//判断 true</span>
+    <span>let</span> arr2 <span>=</span> <span>[</span><span>1</span><span>,</span><span>2</span><span>,</span><span>3</span><span>,</span><span>4</span><span>]</span><span>.</span><span>toString</span><span>(</span><span>)</span> 
+    console<span>.</span><span>log</span><span>(</span>arr2<span>)</span><span>;</span>  <span>//'1,2,3,4'</span>
+    console<span>.</span><span>log</span><span>(</span><span>String</span><span>(</span><span>[</span><span>1</span><span>,</span><span>2</span><span>,</span><span>3</span><span>,</span><span>4</span><span>]</span><span>)</span><span>)</span><span>;</span> <span>//'1,2,3,4'</span>
+    console<span>.</span><span>log</span><span>(</span><span>[</span><span>1</span><span>,</span><span>2</span><span>,</span><span>3</span><span>,</span><span>4</span><span>]</span><span>.</span><span>join</span><span>(</span><span>'|'</span><span>)</span><span>)</span><span>;</span> <span>// '1|2|3|4'</span>
+    console<span>.</span><span>log</span><span>(</span><span>'1234'</span><span>.</span><span>split</span><span>(</span><span>''</span><span>)</span><span>)</span><span>;</span> <span>//[1,2,3,4] 拆分数组</span>
+
+     <span>//具有length 属性可以用Array.from() 数组静态方法</span>
+    <span>let</span> str <span>=</span> <span>'czlisme'</span>
+    console<span>.</span><span>log</span><span>(</span>Array<span>.</span><span>from</span><span>(</span>str<span>)</span><span>)</span><span>;</span> <span>//['c', 'z', 'l', 'i', 's', 'm', 'e']</span>
+     <span>//展开语法 ...点语法</span>
+    <span>let</span> arr4 <span>=</span> <span>[</span><span>'czl'</span><span>,</span> <span>'edg'</span><span>,</span> <span>'isme'</span><span>]</span>
+    <span>let</span> arr5 <span>=</span> <span>[</span><span>'js'</span><span>,</span> <span>'css'</span><span>,</span><span>'html'</span><span>]</span>
+    <span>let</span> arr6<span>;</span>
+    arr6 <span>=</span> <span>[</span><span>...</span>arr4<span>,</span> <span>...</span>arr5<span>]</span>
+    console<span>.</span><span>log</span><span>(</span>arr6<span>)</span><span>;</span> <span>// ['czl', 'edg', 'isme', 'js', 'css', 'html']</span>
+    <span>function</span> <span>sum</span> <span>(</span><span><span>...</span>args</span><span>)</span> <span>{</span>
+        <span>return</span> args<span>.</span><span>reduce</span><span>(</span><span>(</span><span>s<span>,</span>v</span><span>)</span><span>=></span><span>{</span>
+            <span>// console.log(s,v);</span>
+            <span>return</span> <span>(</span>s<span>+=</span>v<span>)</span>
+        <span>}</span><span>,</span> <span>0</span><span>)</span>
+    <span>}</span>
+    console<span>.</span><span>log</span><span>(</span><span>sum</span><span>(</span><span>3</span><span>,</span><span>98</span><span>)</span><span>)</span><span>;</span> <span>// 101</span>
+    console<span>.</span><span>log</span><span>(</span><span>sum</span><span>(</span><span>3</span><span>,</span><span>98</span><span>,</span><span>23</span><span>,</span><span>98</span><span>)</span><span>)</span><span>;</span> <span>// 222</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br></div></div>]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="javascript"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-09-29T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">构造函数随机换色</title>
+    <id>https://czlisme.github.io/blog/articles/aboutjs/color/</id>
+    <link href="https://czlisme.github.io/blog/articles/aboutjs/color/"/>
+    <updated>2021-10-09T01:30:47.137Z</updated>
+    <content type="html"><![CDATA[
+          <div
+            id="code-demo-39ca2661"
+           
+  
+ data-title="%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E4%BB%A3%E7%A0%81"
+
+            data-code="%7B%22html%22%3A%22%3Cdiv%20class%3D%5C%22myDemo%5C%22%3E%5Cn%20%20%20%20%3Cdiv%3E%3C%2Fdiv%3E%5Cn%3C%2Fdiv%3E%5Cn%22%2C%22css%22%3A%22.myDemo%20%7B%5Cn%20%20%20%20padding%3A%2020px%3B%5Cn%20%20%20%20border%3A%201px%20solid%20red%5Cn%7D%5Cn%22%2C%22js%22%3A%22%2F%2F%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%20%E9%9A%8F%E6%9C%BA%E5%8F%98%E8%89%B2%20%5Cnfunction%20Bgcolor%20(elem)%7B%5Cn%20%20%20%20this.elem%20%3D%20elem%5Cn%20%20%20%20this.arrColor%20%3D%20%5B'%2316e5ec'%2C%20'%23ec16e1'%2C%20'%23ee2d4e'%2C%20'%231dd12c'%2C%20'%23e48842'%2C%20'%23126372'%5D%5Cn%20%20%20%20this.run%20%3D%20function%20()%7B%5Cn%20%20%20%20%20%20%20%20setInterval(function()%7B%5Cn%20%20%20%20%20%20%20%20%20%20%20%20let%20i%20%3D%20Math.floor(Math.random()*this.arrColor.length)%5Cn%20%20%20%20%20%20%20%20%20%20%20%20this.elem.style.backgroundColor%20%3D%20this.arrColor%5Bi%5D%5Cn%20%20%20%20%20%20%20%20%7D.bind(this)%2C1000)%5Cn%20%20%20%20%7D%5Cn%7D%5Cnlet%20huanfu%20%3D%20new%20Bgcolor(document.querySelector('.myDemo'))%5Cnhuanfu.run()%5Cn%22%7D"
+          >
+              <div>
+                
+              </div>
+              <div>
+                <div>
+<div><pre><code><span><span><span>&lt;</span>div</span> <span>class</span><span><span>=</span><span>"</span>myDemo<span>"</span></span><span>></span></span>
+    <span><span><span>&lt;</span>div</span><span>></span></span><span><span><span>&lt;/</span>div</span><span>></span></span>
+<span><span><span>&lt;/</span>div</span><span>></span></span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br></div></div><div><pre><code><span>.myDemo</span> <span>{</span>
+    <span>padding</span><span>:</span> 20px<span>;</span>
+    <span>border</span><span>:</span> 1px solid red
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><div><pre><code><span>//构造函数 随机变色 </span>
+<span>function</span> <span>Bgcolor</span> <span>(</span><span>elem</span><span>)</span><span>{</span>
+    <span>this</span><span>.</span>elem <span>=</span> elem
+    <span>this</span><span>.</span>arrColor <span>=</span> <span>[</span><span>'#16e5ec'</span><span>,</span> <span>'#ec16e1'</span><span>,</span> <span>'#ee2d4e'</span><span>,</span> <span>'#1dd12c'</span><span>,</span> <span>'#e48842'</span><span>,</span> <span>'#126372'</span><span>]</span>
+    <span>this</span><span>.</span><span>run</span> <span>=</span> <span>function</span> <span>(</span><span>)</span><span>{</span>
+        <span>setInterval</span><span>(</span><span>function</span><span>(</span><span>)</span><span>{</span>
+            <span>let</span> i <span>=</span> Math<span>.</span><span>floor</span><span>(</span>Math<span>.</span><span>random</span><span>(</span><span>)</span><span>*</span><span>this</span><span>.</span>arrColor<span>.</span>length<span>)</span>
+            <span>this</span><span>.</span>elem<span>.</span>style<span>.</span>backgroundColor <span>=</span> <span>this</span><span>.</span>arrColor<span>[</span>i<span>]</span>
+        <span>}</span><span>.</span><span>bind</span><span>(</span><span>this</span><span>)</span><span>,</span><span>1000</span><span>)</span>
+    <span>}</span>
+<span>}</span>
+<span>let</span> huanfu <span>=</span> <span>new</span> <span>Bgcolor</span><span>(</span>document<span>.</span><span>querySelector</span><span>(</span><span>'.myDemo'</span><span>)</span><span>)</span>
+huanfu<span>.</span><span>run</span><span>(</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br></div></div>
+            </div>
+          </div>
+          
+        </div>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="javascript"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-10-09T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">v-if</title>
+    <id>https://czlisme.github.io/blog/articles/vue/v-if/</id>
+    <link href="https://czlisme.github.io/blog/articles/vue/v-if/"/>
+    <updated>2021-10-09T01:30:47.138Z</updated>
+    <content type="html"><![CDATA[<p>v-if的基础用法</p>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="vue"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-03T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">手写一个简易版nodemon</title>
+    <id>https://czlisme.github.io/blog/articles/node/nodemon/</id>
+    <link href="https://czlisme.github.io/blog/articles/node/nodemon/"/>
+    <updated>2021-10-09T01:30:47.139Z</updated>
+    <content type="html"><![CDATA[<h2 id="利用系统模块watch-方法和spawn-方法模拟"> 利用系统模块watch()方法和spawn()方法模拟</h2>
+<div><pre><code>在我们写node的时候每次修改都需要重新启动服务<span>,</span> 那么nodemon是怎样实现的呢<span>?</span>
+<span>const</span> fs <span>=</span> <span>require</span><span>(</span><span>'fs'</span><span>)</span><span>;</span> <span>// 系统模块fs</span>
+<span>const</span> <span>{</span> exec<span>,</span> spawn <span>}</span> <span>=</span> <span>require</span><span>(</span><span>'child_process'</span><span>)</span><span>;</span> <span>// node的子进程两个函数</span>
+<span>let</span> childProcess<span>;</span>
+<span>let</span> shakeRestart <span>=</span> <span>antiShake</span><span>(</span>restart<span>,</span> <span>500</span><span>)</span> <span>// 防抖函数,只需在最后一下按下保存在执行</span>
+<span>// fs watch监听文件内容的改变</span>
+fs<span>.</span><span>watch</span><span>(</span><span>'./app.js'</span><span>,</span> <span>(</span><span>eventype<span>,</span> filename</span><span>)</span> <span>=></span> <span>{</span>
+    <span>// eventype 触发事件的类型 rename(文件消失或重命名)  change 文件内容改变</span>
+    <span>// filename 触发的文件名称</span>
+    <span>// console.log(filename);</span>
+    <span>// 在执行前先杀死已开启的服务</span>
+    <span>shakeRestart</span><span>(</span><span>)</span><span>;</span>
+<span>}</span><span>)</span>
+<span>function</span> <span>restart</span><span>(</span><span>)</span> <span>{</span>
+    console<span>.</span><span>log</span><span>(</span><span>'restart'</span><span>)</span><span>;</span>
+    childProcess <span>&amp;&amp;</span> childProcess<span>.</span><span>kill</span><span>(</span><span>)</span>
+    childProcess <span>=</span> <span>spawn</span><span>(</span><span>'node'</span><span>,</span> <span>[</span><span>'app.js'</span><span>]</span><span>,</span> <span>{</span>
+        stdio<span>:</span> <span>[</span>process<span>.</span>stdin<span>,</span> process<span>.</span>stdout<span>,</span> process<span>.</span>stderr<span>]</span>
+    <span>}</span><span>)</span>
+<span>}</span>
+<span>// exec 和 spawn的区别</span>
+<span>// exec 是等所有执行完成了再返回结果</span>
+<span>// exec('node test.js', (err, stdout) => {</span>
+<span>//     console.log(stdout);</span>
+<span>// })</span>
+
+<span>// spawn 执行就返回结果</span>
+<span>// spawn('node', ['test.js'], {</span>
+<span>//     stdio: [process.stdin, process.stdout, process.stderr]</span>
+<span>// })</span>
+
+<span>// 防抖函数</span>
+<span>function</span> <span>antiShake</span><span>(</span><span>fn<span>,</span> delay</span><span>)</span> <span>{</span>
+    <span>let</span> timebar<span>;</span>
+    <span>return</span> <span>(</span><span>)</span> <span>=></span> <span>{</span>
+        <span>clearTimeout</span><span>(</span>timebar<span>)</span>
+        timebar <span>=</span> <span>setTimeout</span><span>(</span><span>(</span><span>)</span> <span>=></span> <span>{</span>
+            <span>fn</span><span>(</span><span>)</span>
+        <span>}</span><span>,</span> delay<span>)</span>
+    <span>}</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br><span>19</span><br><span>20</span><br><span>21</span><br><span>22</span><br><span>23</span><br><span>24</span><br><span>25</span><br><span>26</span><br><span>27</span><br><span>28</span><br><span>29</span><br><span>30</span><br><span>31</span><br><span>32</span><br><span>33</span><br><span>34</span><br><span>35</span><br><span>36</span><br><span>37</span><br><span>38</span><br><span>39</span><br><span>40</span><br><span>41</span><br></div></div>]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="后端"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-16T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">基于vue的ui框架 element-Ui</title>
+    <id>https://czlisme.github.io/blog/articles/ui/vant/</id>
+    <link href="https://czlisme.github.io/blog/articles/ui/vant/"/>
+    <updated>2021-10-09T01:30:47.139Z</updated>
+    <content type="html"><![CDATA[<p>使用方法</p>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="ui框架"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-03T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">用node开启本地服务器</title>
+    <id>https://czlisme.github.io/blog/articles/node/server/</id>
+    <link href="https://czlisme.github.io/blog/articles/node/server/"/>
+    <updated>2021-10-09T01:30:47.142Z</updated>
+    <content type="html"><![CDATA[<h2 id="_1-开启http"> 1.开启http</h2>
+<div><pre><code><span>const</span> http <span>=</span> <span>require</span><span>(</span><span>'http'</span><span>)</span><span>;</span>
+<span>const</span> app <span>=</span> http<span>.</span><span>createServer</span><span>(</span><span>)</span><span>;</span>
+app<span>.</span><span>on</span><span>(</span><span>'request'</span><span>,</span> <span>(</span><span>req<span>,</span> res</span><span>)</span> <span>=></span> <span>{</span>
+    res<span>.</span><span>end</span><span>(</span><span>'&lt;h1> hello world&lt;/h1>'</span><span>)</span>
+<span>}</span><span>)</span>
+app<span>.</span><span>listen</span><span>(</span><span>'3000'</span><span>)</span><span>;</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div><p>打开浏览器可以看到
+<img src="./img/http.png"></p>
+<h2 id="_2-使用express框架"> 2.使用express框架</h2>
+<div><pre><code><span>const</span> express <span>=</span> <span>require</span><span>(</span><span>'express'</span><span>)</span>
+<span>const</span> app <span>=</span> <span>express</span><span>(</span><span>)</span>
+app<span>.</span><span>get</span><span>(</span><span>'/'</span><span>,</span> <span>(</span><span>req<span>,</span> res</span><span>)</span> <span>=></span> <span>{</span>
+    res<span>.</span><span>send</span><span>(</span><span>'服务器已在3000端口开启'</span><span>)</span>
+<span>}</span><span>)</span>
+app<span>.</span><span>listen</span><span>(</span><span>3000</span><span>)</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br></div></div><p>可以看到本机服务器已在localhost3000端口打开</p>
+<div>
+    <img src="./img/server.png" height="200px" width="100%">
+</div>]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="后端"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-14T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">reduce方法</title>
+    <id>https://czlisme.github.io/blog/articles/aboutjs/reduce/</id>
+    <link href="https://czlisme.github.io/blog/articles/aboutjs/reduce/"/>
+    <updated>2021-10-09T01:30:47.143Z</updated>
+    <content type="html"><![CDATA[
+          <div
+            id="code-demo-386bf66a"
+           
+  
+ data-title="%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E6%BC%94%E7%A4%BA%E4%BB%A3%E7%A0%81"
+
+            data-code="%7B%22html%22%3A%22%3Cspan%3E%5B1%2C%206%2C%203%2C%204%2C%206%20%2C6%2C%205%2C%209%2C%206%5D%3Cspan%3E%5Cn%3Cdiv%20class%3D%5C%22demo%5C%22%3E%5Cn%20%20%20%3Cbutton%3E%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B%E6%95%B0%E7%BB%84%E7%9A%84%E4%B8%AD6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%3C%2Fbutton%3E%5Cn%3C%2Fdiv%3E%5Cn%22%2C%22css%22%3A%22.demo%20%7B%5Cn%20%20%20margin-top%3A%2015px%3B%5Cn%7D%5Cn.demo%3E%20button%20%7B%20%5Cn%20%20%20margin-left%3A%20-10px%3B%5Cn%20%20%20color%3A%20red%3B%5Cn%7D%5Cn%22%2C%22js%22%3A%22%20%2F%2F%20%E6%95%B0%E7%BB%84%E8%B0%83%E7%94%A8reduce%E6%96%B9%E6%B3%95%E5%90%8E%5Cn%20%2F%2F%20pre%E6%B2%A1%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%E4%B8%BA%E6%95%B0%E7%BB%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%5Cn%20%2F%2F%20pre%E6%9C%89%E5%88%9D%E5%A7%8B%E5%80%BC%E5%88%99%E4%B8%BA%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B9%8B%E5%90%8E%E7%9A%84%E5%8F%82%E6%95%B0%2Cvalue%E6%95%B0%E7%BB%84%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%83%E7%B4%A0%5Cn%20%2F%2F%20%E5%88%9D%E5%A7%8B%E5%80%BCvlaue%E4%B8%BA%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95%E5%90%8E%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC%2C%E5%88%9D%E5%A7%8B%E5%80%BC%E4%B8%BA%E6%95%B0%E7%BB%84%E7%AC%AC%E4%BA%8C%E4%B8%AA%E5%85%83%E7%B4%A0%5Cn%2F%2F%20%20array.reduce((pre%2C%20value%2C%20index%2C%20array)%3D%3E%20%7B%5Cn%2F%2F%20%20%20%20%20return%20value%5Cn%2F%2F%20%20%7D)%5Cn%20let%20array%20%3D%20%5B1%2C%206%2C%203%2C%204%2C%206%20%2C6%2C%205%2C%209%2C%206%5D%3B%5Cn%20function%20arrayCount(arr%2C%20item)%20%7B%5Cn%20%20%20return%20arr.reduce((total%2C%20cur)%20%3D%3E%20%7B%5Cn%20%20%20%20%20%20%20total%20%2B%3D%20item%20%3D%3D%3D%20cur%20%3F%201%20%3A%200%3B%20%5Cn%20%20%20%20%20%20%20return%20total%5Cn%20%20%20%20%7D%2C%200)%5Cn%20%7D%5Cn%20const%20num%20%3D%20arrayCount(array%2C%206)%5Cn%20document.querySelector(%5C%22.demo%5C%22).addEventListener(%5C%22click%5C%22%2C%20()%20%3D%3E%20%7B%5Cn%20%20alert(%60%E6%95%B0%E7%BB%84%E4%B8%AD6%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0%E4%B8%BA%24%7Bnum%7D%E6%AC%A1%60)%3B%5Cn%7D)%3B%5Cn%22%7D"
+          >
+              <div>
+                
+              </div>
+              <div>
+                <div>
+<div><pre><code><span><span><span>&lt;</span>span</span><span>></span></span>[1, 6, 3, 4, 6 ,6, 5, 9, 6]<span><span><span>&lt;</span>span</span><span>></span></span>
+<span><span><span>&lt;</span>div</span> <span>class</span><span><span>=</span><span>"</span>demo<span>"</span></span><span>></span></span>
+   <span><span><span>&lt;</span>button</span><span>></span></span>点击查看数组的中6出现的次数<span><span><span>&lt;/</span>button</span><span>></span></span>
+<span><span><span>&lt;/</span>div</span><span>></span></span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></div></div><div><pre><code><span>.demo</span> <span>{</span>
+   <span>margin-top</span><span>:</span> 15px<span>;</span>
+<span>}</span>
+<span>.demo> button</span> <span>{</span> 
+   <span>margin-left</span><span>:</span> -10px<span>;</span>
+   <span>color</span><span>:</span> red<span>;</span>
+<span>}</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br></div></div><div><pre><code> <span>// 数组调用reduce方法后</span>
+ <span>// pre没有初始值为数组第一个元素</span>
+ <span>// pre有初始值则为回调函数之后的参数,value数组中第一个元素</span>
+ <span>// 初始值vlaue为调用方法后的返回值,初始值为数组第二个元素</span>
+<span>//  array.reduce((pre, value, index, array)=> {</span>
+<span>//     return value</span>
+<span>//  })</span>
+ <span>let</span> array <span>=</span> <span>[</span><span>1</span><span>,</span> <span>6</span><span>,</span> <span>3</span><span>,</span> <span>4</span><span>,</span> <span>6</span> <span>,</span><span>6</span><span>,</span> <span>5</span><span>,</span> <span>9</span><span>,</span> <span>6</span><span>]</span><span>;</span>
+ <span>function</span> <span>arrayCount</span><span>(</span><span>arr<span>,</span> item</span><span>)</span> <span>{</span>
+   <span>return</span> arr<span>.</span><span>reduce</span><span>(</span><span>(</span><span>total<span>,</span> cur</span><span>)</span> <span>=></span> <span>{</span>
+       total <span>+=</span> item <span>===</span> cur <span>?</span> <span>1</span> <span>:</span> <span>0</span><span>;</span> 
+       <span>return</span> total
+    <span>}</span><span>,</span> <span>0</span><span>)</span>
+ <span>}</span>
+ <span>const</span> num <span>=</span> <span>arrayCount</span><span>(</span>array<span>,</span> <span>6</span><span>)</span>
+ document<span>.</span><span>querySelector</span><span>(</span><span>".demo"</span><span>)</span><span>.</span><span>addEventListener</span><span>(</span><span>"click"</span><span>,</span> <span>(</span><span>)</span> <span>=></span> <span>{</span>
+  <span>alert</span><span>(</span><span><span>`</span><span>数组中6出现的次数为</span><span><span>${</span>num<span>}</span></span><span>次</span><span>`</span></span><span>)</span><span>;</span>
+<span>}</span><span>)</span><span>;</span>
+</code></pre>
+<div><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br><span>6</span><br><span>7</span><br><span>8</span><br><span>9</span><br><span>10</span><br><span>11</span><br><span>12</span><br><span>13</span><br><span>14</span><br><span>15</span><br><span>16</span><br><span>17</span><br><span>18</span><br></div></div>
+            </div>
+          </div>
+          
+        </div>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="javascript"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-09-09T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">v-for</title>
+    <id>https://czlisme.github.io/blog/articles/vue/v-for/</id>
+    <link href="https://czlisme.github.io/blog/articles/vue/v-for/"/>
+    <updated>2021-10-09T01:30:47.143Z</updated>
+    <content type="html"><![CDATA[<p>dom渲染</p>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="vue"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-03T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">v-model</title>
+    <id>https://czlisme.github.io/blog/articles/vue/v-model/</id>
+    <link href="https://czlisme.github.io/blog/articles/vue/v-model/"/>
+    <updated>2021-10-09T01:30:47.143Z</updated>
+    <content type="html"><![CDATA[<p>数据双向绑定</p>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="vue"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-03T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">程序员第一步 helloWorld</title>
+    <id>https://czlisme.github.io/blog/articles/aboutjs/helloworld/</id>
+    <link href="https://czlisme.github.io/blog/articles/aboutjs/helloworld/"/>
+    <updated>2021-10-09T01:30:47.143Z</updated>
+    <content type="html"><![CDATA[<p>用js输出helloworld,打开浏览器控制台</p>
+<div><pre><code>console<span>.</span><span>log</span><span>(</span><span>'hello world'</span><span>)</span>
+</code></pre>
+<div><span>1</span><br></div></div>]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="javascript"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-09-10T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">全球总决赛</title>
+    <id>https://czlisme.github.io/blog/esports/two/</id>
+    <link href="https://czlisme.github.io/blog/esports/two/"/>
+    <updated>2021-10-09T01:30:47.143Z</updated>
+    <content type="html"><![CDATA[<hr>
+<h1 id="edg10-3"> edg10-3</h1>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="like"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-04T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">基于vue的ui框架 element-Ui</title>
+    <id>https://czlisme.github.io/blog/articles/ui/element/</id>
+    <link href="https://czlisme.github.io/blog/articles/ui/element/"/>
+    <updated>2021-10-09T01:30:47.143Z</updated>
+    <content type="html"><![CDATA[<p>使用方法</p>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="ui框架"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-03T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">小爱课程表的导入方法</title>
+    <id>https://czlisme.github.io/blog/articles/aboutjs/schedule/</id>
+    <link href="https://czlisme.github.io/blog/articles/aboutjs/schedule/"/>
+    <updated>2021-10-09T01:30:47.144Z</updated>
+    <content type="html"><![CDATA[
+<h2 id="导入步骤顺序"> 导入步骤顺序</h2>
+<ol>
+<li>小米手机打开自带的小爱课程表
+非小米手机可以浏览器搜索下载</li>
+<li>点击课程表设置，选择学校宜春学院
+选择第一个或者第二个
+（区别是一个需要手动定位个人课表页面
+另一个登录后直接跳转到个人课表页面）</li>
+<li>选择教务网站导入
+（必须用校园网，因为学校新版教务系统校园网才能打开）
+登录自己的教务管理系统</li>
+<li>定位到课表页面后点击</li>
+<li>目前我适配学校的导入功能，目前已被60多位同学导入使用
+<div>
+<img src="./images/05.jpg">
+</div></li>
+</ol>
+
+          <div
+            id="code-demo-4505230f"
+           
+  
+ data-title="%E5%AF%BC%E5%85%A5%E6%AD%A5%E9%AA%A4%E6%BC%94%E7%A4%BA"
+
+            data-code="%7B%7D"
+          >
+              <div>
+                
+              </div>
+              <div>
+                <div>
+<div>
+    <img src="./images/01.jpg" height="400px">
+    <img src="./images/02.jpg" height="300px">
+    <img src="./images/03.jpg" height="300px" width="250px">
+    <img src="./images/04.jpg" height="400px">
+    <img src="./images/06.jpg" height="400px">
+</div>
+
+            </div>
+          </div>
+          
+        </div>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="javascript"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-09-07T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">EDG的溜粉套路</title>
+    <id>https://czlisme.github.io/blog/esports/three/</id>
+    <link href="https://czlisme.github.io/blog/esports/three/"/>
+    <updated>2021-10-09T01:30:47.144Z</updated>
+    <content type="html"><![CDATA[<hr>
+<h1 id="edg10-3"> edg10-3</h1>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="like"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-05T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+  <entry>
+    <title type="html">关于LPL</title>
+    <id>https://czlisme.github.io/blog/esports/one/</id>
+    <link href="https://czlisme.github.io/blog/esports/one/"/>
+    <updated>2021-10-09T01:30:47.144Z</updated>
+    <content type="html"><![CDATA[<h1 id="edg10-3"> edg10-3</h1>
+]]></content>
+    <author>
+      <name>ChenZunlin</name>
+    </author>
+    <category term="like"/>
+    <contributor>
+      <name>ChenZunlin</name>
+    </contributor>
+    <published>2021-08-03T00:00:00.000Z</published>
+    <rights>Copyright by ChenZunlin</rights>
+  </entry>
+</feed>
